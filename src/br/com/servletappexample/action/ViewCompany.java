@@ -12,7 +12,7 @@ import br.com.servletappexample.model.Database;
 
 public class ViewCompany {
 
-	public void run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
@@ -23,9 +23,8 @@ public class ViewCompany {
 		System.out.println(company.getName());
 		
 		request.setAttribute("company", company);
-		RequestDispatcher rd = request.getRequestDispatcher("/formEditCompany.jsp");
-		rd.forward(request, response);
 		
+		return "forward:/formEditCompany.jsp";
 	}
 
 }

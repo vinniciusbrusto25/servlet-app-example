@@ -14,7 +14,7 @@ import br.com.servletappexample.model.Database;
 
 public class EditCompany {
 
-	public void run(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	public String run(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
 		String txtIdCompany = request.getParameter("txtIdCompny");
 		Integer id = Integer.valueOf(txtIdCompany);
@@ -38,7 +38,7 @@ public class EditCompany {
 		company.setName(txtNameCompany);
 		company.setDateEntry(dateEntry);
 		
-		response.sendRedirect("main?action=listCompanies");
+		return "redirect:main?action=listCompanies";
 	}
 
 }

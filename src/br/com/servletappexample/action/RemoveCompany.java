@@ -9,7 +9,7 @@ import br.com.servletappexample.model.Database;
 
 public class RemoveCompany {
 
-	public void run(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public String run(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
@@ -18,8 +18,7 @@ public class RemoveCompany {
 		
 		db.removeCompany(id);
 		
-		response.sendRedirect("main?action=listCompanies");
-		
+		return "redirect:main?action=listCompanies";
 	}
 
 }

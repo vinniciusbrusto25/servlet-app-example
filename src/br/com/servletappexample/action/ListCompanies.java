@@ -13,15 +13,14 @@ import br.com.servletappexample.model.Database;
 
 public class ListCompanies {
 
-	public void run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Database database = new Database();
 		List<Company> list = database.getCompanies();
 		
 		request.setAttribute("listOfCompanies", list);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/listCompanies.jsp");
-		rd.forward(request, response);
-		
 		System.out.println("Listing companies...");
+		
+		return "forward:listCompanies.jsp";
 	}
 }
