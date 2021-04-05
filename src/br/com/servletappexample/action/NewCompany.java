@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.servletappexample.model.Company;
 import br.com.servletappexample.model.Database;
 
-public class NewCompany {
+public class NewCompany implements ActionApp {
 
 	public String run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -38,7 +38,7 @@ public class NewCompany {
 		
 		request.setAttribute("company", company.getName());
 		
-		return "redirect:main?action=listCompanies";
+		return "redirect:main?action=ListCompanies";
 	}
 
 }

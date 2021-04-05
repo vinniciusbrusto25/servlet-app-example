@@ -6,8 +6,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<c:url value="/main?action=viewCompany&id=" var="linkViewCompany"></c:url>
-<c:url value="/main?action=removeCompany&id=" var="linkRemoveCompany"></c:url>
+<c:url value="/main?action=ViewCompany&id=" var="linkViewCompany"></c:url>
+<c:url value="/main?action=RemoveCompany&id=" var="linkRemoveCompany"></c:url>
 
 <!DOCTYPE html>
 <html>
@@ -16,6 +16,8 @@
 		<title>List of companies</title>
 	</head>
 	<body>
+		<p>User: ${userLogged.login} </p>
+		
 		<c:if test="${not empty company}">
 			<p>The company ${ company } was registered with success!</p>
 		</c:if>

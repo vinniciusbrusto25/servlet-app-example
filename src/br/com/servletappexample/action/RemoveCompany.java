@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.servletappexample.model.Database;
 
-public class RemoveCompany {
+public class RemoveCompany implements ActionApp {
 
 	public String run(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
@@ -18,7 +18,7 @@ public class RemoveCompany {
 		
 		db.removeCompany(id);
 		
-		return "redirect:main?action=listCompanies";
+		return "redirect:main?action=ListCompanies";
 	}
 
 }
