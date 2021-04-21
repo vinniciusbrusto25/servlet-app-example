@@ -1,24 +1,28 @@
 package br.com.servletappexample.servlet;
 
 import java.io.IOException;
-
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-//import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+//import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//import javax.servlet.http.HttpSession;
 import br.com.servletappexample.action.ActionApp;
 
-//This works like a controller, just delegates the action to the class responsible for it.
-//@WebServlet(urlPatterns = "/main")
-public class MainEntryServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+//@WebFilter("/main")
+public class ControllerFilter implements Filter {
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
 
-		String nameAction = request.getParameter("action");		
+		
+		System.out.println("ControllerFilter");
+		
+		HttpServletRequest request = (HttpServletRequest) servletRequest;
+		HttpServletResponse response = (HttpServletResponse) servletResponse;
+		String nameAction = request.getParameter("action");
 		String className = "br.com.servletappexample.action." + nameAction;		
 		String nameView;
 		
@@ -38,7 +42,6 @@ public class MainEntryServlet extends HttpServlet {
 		} else {
 			response.sendRedirect(typeUri[1]);
 		}
-			
 	}
 
 }

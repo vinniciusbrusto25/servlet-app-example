@@ -10,6 +10,8 @@
 	<body>
 		<%--${ company } finds an attribute called company in the request--%>
 		
+		<c:import url="logoutButton.jsp"></c:import>
+		
 		<c:if test="${not empty company}">
 			<p>The company ${ company } was registered with success!</p>
 		</c:if>

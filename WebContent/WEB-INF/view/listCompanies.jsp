@@ -16,6 +16,8 @@
 		<title>List of companies</title>
 	</head>
 	<body>
+		<c:import url="logoutButton.jsp"></c:import>
+		
 		<p>User: ${userLogged.login} </p>
 		
 		<c:if test="${not empty company}">
