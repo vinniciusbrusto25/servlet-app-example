@@ -11,6 +11,8 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
+        <c:import url="logoutButton.jsp"></c:import>
+        
         <form action="${linkMainServlet}" method="post">
             <label for="name">Name: </label>
             <input type="text" name="txtName" id="name">

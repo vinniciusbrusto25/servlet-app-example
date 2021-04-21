@@ -1,7 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>servlet-app-example</display-name>
-  <welcome-file-list>
-    <welcome-file>welcome.html</welcome-file>
-  </welcome-file-list>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>servlet-app-example</display-name>
+	<welcome-file-list>
+		<welcome-file>welcome.html</welcome-file>
+	</welcome-file-list>
+	
+	<!-- MonitorFilter -->
+	<filter>
+		<filter-name>MF</filter-name>
+		<filter-class>br.com.servletappexample.servlet.MonitorFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>MF</filter-name>
+		<url-pattern>/main</url-pattern>
+	</filter-mapping>
+	
+	<!-- AuthorizationFilter -->
+	<filter>
+		<filter-name>AF</filter-name>
+		<filter-class>br.com.servletappexample.servlet.AuthorizationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AF</filter-name>
+		<url-pattern>/main</url-pattern>
+	</filter-mapping>
+	
+	<!-- ControllerFilter -->
+	<filter>
+		<filter-name>CF</filter-name>
+		<filter-class>br.com.servletappexample.servlet.ControllerFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CF</filter-name>
+		<url-pattern>/main</url-pattern>
+	</filter-mapping>
+	
 </web-app>
